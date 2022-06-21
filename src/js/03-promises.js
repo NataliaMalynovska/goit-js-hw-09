@@ -25,14 +25,17 @@ form.addEventListener("submit", e => {
 }
 );
 
-function createPromise(p, delay) {
+function createPromise(position, delay) {
   return new Promise ((resolve, reject) => {
   const shouldResolve = Math.random() > 0.3; 
+ 
   setTimeout(() => {
     if (shouldResolve) {
-      resolve (`✅`)
+      console.log(position);
+      console.log(delay);
+  resolve ({ position, delay });
   } 
-      reject (`❌`)
+      reject ({ position, delay });
   }, delay);
 });
 }
